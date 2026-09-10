@@ -1,0 +1,61 @@
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+config.local.*
+
+# Dados sensíveis e arquivos de entrada/saída
+data/raw/
+data/private/
+data/sensitive/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.db
+*.sqlite
+*.sqlite3
+
+# Notebooks e resultados locais
+.ipynb_checkpoints/
+outputs/
+results/
+reports/
+figures/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Ferramentas e configurações locais
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+*.bak
