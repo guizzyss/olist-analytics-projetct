@@ -5,7 +5,7 @@ def extrair_dados_kaggle():
     Conecta na API do Kaggle e baixa a última versão do dataset da Olist.
     Retorna o caminho (path) absoluto da pasta onde os CSVs foram salvos.
     """
-    print("Iniciando extração de dados da API do Kaggle...")
+    print("Iniciando extração de dados da API")
     
     # O kagglehub baixa os arquivos para o cache do sistema e retorna o caminho
     caminho_dados = kagglehub.dataset_download("olistbr/brazilian-ecommerce")

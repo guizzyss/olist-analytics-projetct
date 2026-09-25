@@ -6,7 +6,7 @@ def limpar_e_transformar(caminho_dados):
     Lê os CSVs baixados, aplica as regras de normalização e retorna 
     um dicionário de DataFrames limpos prontos para o banco de dados.
     """
-    print("Iniciando a transformação dos dados com Pandas...")
+    print("Transformando e normalizando dados com Pandas")
 
     # 1. Leitura dos dados brutos
     caminho_pedidos = os.path.join(caminho_dados, "olist_orders_dataset.csv")

@@ -9,7 +9,7 @@ def carregar_para_postgres(dicionario_dfs):
     """
     Recebe os DataFrames limpos e os insere no PostgreSQL.
     """
-    print("Iniciando a conexão com o PostgreSQL...")
+    print("Iniciando a conexão com o PostgreSQL")
 
     # Pegando as credenciais do .env
     DB_USER = os.getenv("DB_USER")
@@ -19,7 +19,7 @@ def carregar_para_postgres(dicionario_dfs):
     DB_NAME = os.getenv("DB_NAME", "olist_db")
 
     # String de conexão no padrão SQLAlchemy
-    string_conexao = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    string_conexao = f"postgresql+psycopg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     
     try:
         engine = create_engine(string_conexao)
@@ -33,5 +33,8 @@ def carregar_para_postgres(dicionario_dfs):
             
         print("Carga de dados concluída com sucesso!")
         
+    except ConnectionError as ce: 
+        print(f"Erro ao conectar ou carregar dados no PostgreSQL: {ce}")
+    
     except Exception as e:
-        print(f"Erro ao conectar ou carregar dados no PostgreSQL: {e}")
+        print(f"Erro desconhecido. Por favor, verifique o código: {e}")
