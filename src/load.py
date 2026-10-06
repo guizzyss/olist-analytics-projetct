@@ -29,7 +29,7 @@ def carregar_para_postgres(dicionario_dfs):
             print(f"Carregando a tabela '{nome_tabela}' no banco de dados...")
             
             # to_sql cria ou substitui a tabela automaticamente
-            df.to_sql(name=nome_tabela, con=engine, if_exists='replace', index=False)
+            df.to_sql(name=nome_tabela, con=engine, if_exists='append', index=False, chunksize=10000)
             
         print("Carga de dados concluída com sucesso!")
         
@@ -38,3 +38,8 @@ def carregar_para_postgres(dicionario_dfs):
     
     except Exception as e:
         print(f"Erro desconhecido. Por favor, verifique o código: {e}")
+
+    finally:
+        # Fechando a conexão com o banco de dados
+        engine.dispose()
+        print("Conexão com o PostgreSQL encerrada.")
